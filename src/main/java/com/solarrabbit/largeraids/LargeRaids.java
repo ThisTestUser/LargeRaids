@@ -86,7 +86,7 @@ public final class LargeRaids extends JavaPlugin {
         bossbarCreator.init(this);
         getServer().getPluginManager().registerEvents(bossbarCreator, this);
         BookGenerator bookGen = new BookGenerator(this.getResource("traderbook.yml"));
-        getServer().getPluginManager().registerEvents(new TraderBookListener(bookGen), this);
+        getServer().getPluginManager().registerEvents(new TraderBookListener(bookGen, this), this);
 
         // Additional listeners for custom mobs
         mobManagers = new MobManagers();

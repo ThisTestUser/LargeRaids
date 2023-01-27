@@ -201,6 +201,8 @@ placeholder:
 
 ```yml
 miscellaneous:
+  # Percent chance of the wandering trader would drop a book.
+  trader-drop-chance: 0.1
   # Maximum number of ongoing large raids permitted at any point in time. Set to 0 for no limit.
   max-raids: 0
   # Whether ringing of bell will outline every single raider in the raid, regardless of distance
@@ -325,6 +327,7 @@ placeholder:
   not-in-range-string: Not In Range
 
 miscellaneous:
+  trader-drop-chance: 0.1
   max-raids: 0
   bell-outline-raiders:
     normal-raid: false

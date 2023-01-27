@@ -81,6 +81,7 @@ placeholder:
   not-in-range-string: Not In Range
 
 miscellaneous:
+  trader-drop-chance: 0.1
   max-raids: 0
   bell-outline-raiders:
     normal-raid: false
