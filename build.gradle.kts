@@ -24,6 +24,7 @@ repositories {
 
 tasks.withType<ShadowJar> {
   configurations = listOf(project.configurations.shadow.get())
+  relocate("org.bstats", "com.solarrabbit.largeraids.bstats")
 }
 
 dependencies {
