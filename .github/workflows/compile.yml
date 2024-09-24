@@ -29,10 +29,12 @@ jobs:
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4
-        if: success()
         with:
           name: LargeRaids
           path: build/libs/
+
+      - name: Remove Old Tags
+        run: gh release delete "${{ env.MC_VERSION }}" --cleanup-tag
 
       - name: Release
         uses: softprops/action-gh-release@v2
