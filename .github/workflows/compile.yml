@@ -35,6 +35,8 @@ jobs:
 
       - name: Remove Old Tags
         run: gh release delete "${{ env.MC_VERSION }}" --cleanup-tag
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Release
         uses: softprops/action-gh-release@v2
