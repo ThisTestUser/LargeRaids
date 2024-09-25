@@ -28,7 +28,6 @@ import com.solarrabbit.largeraids.trigger.Trigger;
 import com.solarrabbit.largeraids.trigger.TriggerManager;
 import com.solarrabbit.largeraids.trigger.omen.VillageAbsorbOmenListener;
 import com.solarrabbit.largeraids.util.BossBarCreator;
-import com.solarrabbit.largeraids.util.VersionUtil;
 import com.solarrabbit.largeraids.village.BellListener;
 import com.solarrabbit.largeraids.village.VillageManager;
 
