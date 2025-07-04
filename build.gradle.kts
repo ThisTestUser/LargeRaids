@@ -28,10 +28,10 @@ tasks.withType<ShadowJar> {
 }
 
 dependencies {
-  paperDevBundle(mcVersion + "-R0.1-SNAPSHOT")
+  paperweight.paperDevBundle("1.21.4-R0.1-SNAPSHOT")
   shadow("org.bstats:bstats-bukkit:3.0.2")
   implementation("me.clip:placeholderapi:2.11.6")
-  implementation("io.lumine:Mythic-Dist:5.7.1-SNAPSHOT")
+  implementation("io.lumine:Mythic-Dist:5.9.1-SNAPSHOT")
 }
 
 tasks {
