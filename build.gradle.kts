@@ -33,9 +33,11 @@ dependencies {
   implementation("me.clip:placeholderapi:2.11.6")
   implementation("io.lumine:Mythic-Dist:5.9.1-SNAPSHOT")
 }
+
+tasks {
   // Configure reobfJar to run when invoking the build task
-  tasks.assemble {
-    dependsOn(tasks.reobfJar)
+  assemble {
+    dependsOn(reobfJar)
   }
 
   compileJava {
