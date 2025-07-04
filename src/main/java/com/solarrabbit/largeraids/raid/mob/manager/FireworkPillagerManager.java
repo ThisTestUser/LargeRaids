@@ -44,7 +44,7 @@ public class FireworkPillagerManager implements CustomRaiderManager, Listener {
     @Override
     public FireworkPillager spawn(Location location) {
         Pillager entity = (Pillager) location.getWorld().spawnEntity(location, EntityType.PILLAGER);
-        entity.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(health);
+        entity.getAttribute(Attribute.MAX_HEALTH).setBaseValue(health);
         entity.setHealth(health);
         EntityEquipment equipment = entity.getEquipment();
         equipment.setItemInOffHand(getDefaultFirework());
