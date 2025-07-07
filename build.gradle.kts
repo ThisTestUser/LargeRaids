@@ -63,15 +63,3 @@ tasks {
   }
    */
 }
-
-tasks.register("getVersion") {
-    doLast {
-        println(version)
-    }
-}
-
-tasks.register("getMCVersion") {
-    doLast {
-        println(mcVersion)
-    }
-}
