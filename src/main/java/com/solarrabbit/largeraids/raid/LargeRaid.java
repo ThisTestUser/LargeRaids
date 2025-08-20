@@ -41,7 +41,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 public class LargeRaid {
-    private static final int RADIUS = 96;
+    private static final int RADIUS = 144;
     private static final int VANILLA_RAID_OMEN_LEVEL = 2;
     /**
      * Raiders will be invulnerable for 1 second to avoid damage from entity
