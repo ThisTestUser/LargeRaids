@@ -74,7 +74,7 @@ public class RaiderPathfindToTargetGoal<T extends Raider> extends PathfindToRaid
                 this.changed = false;
             }
             if (!this.mob.isPathFinding()) {
-                Vec3 posTowards = targetPos != null ? targetPos.getBottomCenter()
+                Vec3 posTowards = targetPos != null ? Vec3.atBottomCenterOf(targetPos)
                         : DefaultRandomPos.getPosTowards(this.mob, 15, 4, Vec3.atBottomCenterOf(
                         currentRaid.getCenter()), (float) (Math.PI / 2));
                 if (posTowards != null) {

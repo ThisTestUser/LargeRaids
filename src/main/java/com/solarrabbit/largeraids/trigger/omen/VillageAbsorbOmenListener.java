@@ -7,6 +7,7 @@ import com.solarrabbit.largeraids.LargeRaids;
 import com.solarrabbit.largeraids.raid.LargeRaid;
 import com.solarrabbit.largeraids.trigger.Trigger;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.EntityPotionEffectEvent;
@@ -17,8 +18,12 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 public class VillageAbsorbOmenListener extends Trigger {
+    private final KillCaptainListener killCaptainListener;
+
     public VillageAbsorbOmenListener(LargeRaids plugin) {
         super(plugin);
+        killCaptainListener = new KillCaptainListener(plugin);
+        Bukkit.getPluginManager().registerEvents(killCaptainListener, plugin);
     }
 
     /**
@@ -32,15 +37,19 @@ public class VillageAbsorbOmenListener extends Trigger {
             return;
         evt.setCancelled(true);
         Player player = evt.getPlayer();
-        int amplifier = player.getPotionEffect(PotionEffectType.RAID_OMEN).getAmplifier();
+        int amplifier = player.getPotionEffect(PotionEffectType.BAD_OMEN).getAmplifier();
         triggerRaid(player, player.getLocation(), amplifier + 1);
+
+        // Bukkit is supposed to remove this effect after the event is cancelled,
+        // but it removes RAID_OMEN only, which is probably a bug.
+        player.removePotionEffect(PotionEffectType.BAD_OMEN);
     }
 
     @EventHandler
     public void onEffectRemoval(EntityPotionEffectEvent evt) {
         PotionEffectType type = evt.getModifiedType();
-        if (type == null || !type.equals(PotionEffectType.RAID_OMEN) || evt.getAction() != Action.REMOVED
-                || evt.getCause() != Cause.EXPIRATION)
+        if (type == null || !type.equals(PotionEffectType.BAD_OMEN) || evt.getAction() != Action.REMOVED
+                || evt.getCause() != Cause.UNKNOWN)
             return;
         Set<LargeRaid> affectedLargeRaids = plugin.getRaidManager().currentRaids.stream()
                 .filter(LargeRaid::releaseOmen).collect(Collectors.toSet());
@@ -56,6 +65,7 @@ public class VillageAbsorbOmenListener extends Trigger {
     public void unregisterListener() {
         RaidTriggerEvent.getHandlerList().unregister(this);
         EntityPotionEffectEvent.getHandlerList().unregister(this);
+        killCaptainListener.unregisterListener();
     }
 
     private class MultipleLargeRaidReleaseOmenException extends RuntimeException {
