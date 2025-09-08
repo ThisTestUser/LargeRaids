@@ -60,8 +60,8 @@ public class KingRaiderManager implements BossRaiderManager, Listener {
     public KingRaider spawn(Location location) {
         Ravager ravager = (Ravager) location.getWorld().spawnEntity(location, EntityType.RAVAGER);
         ravager.setCustomName("Juggernaut");
-        ravager.getAttribute(Attribute.MAX_HEALTH).setBaseValue(ravagerHealth);
-        ravager.getAttribute(Attribute.ATTACK_DAMAGE).setBaseValue(ravagerDamage);
+        ravager.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(ravagerHealth);
+        ravager.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE).setBaseValue(ravagerDamage);
         ravager.setHealth(ravagerHealth);
         ravager.getPersistentDataContainer().set(getJuggernautNamespacedKey(), PersistentDataType.BYTE, (byte) 0);
         if (regenLevel >= 0)

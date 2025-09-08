@@ -40,7 +40,8 @@ public class RaiderPathfindToTargetGoal<T extends Raider> extends PathfindToRaid
 
     private boolean isCloseToGoal() {
         if (targetPos == null)
-            return getServerLevel(this.mob.level()).isVillage(this.mob.blockPosition());
+            return this.mob.level() instanceof ServerLevel
+                && ((ServerLevel) this.mob.level()).isVillage(this.mob.blockPosition());
 
         return targetPos.closerToCenterThan(this.mob.position(), targetRadius);
     }
@@ -85,9 +86,8 @@ public class RaiderPathfindToTargetGoal<T extends Raider> extends PathfindToRaid
 
     private void recruitNearby(Raid raid) {
         if (raid.isActive()) {
-            ServerLevel serverLevel = getServerLevel(this.mob.level());
             Set<Raider> set = Sets.newHashSet();
-            List<Raider> entitiesOfClass = serverLevel.getEntitiesOfClass(
+            List<Raider> entitiesOfClass = this.mob.level().getEntitiesOfClass(
                 Raider.class, this.mob.getBoundingBox().inflate(16.0), raider1 -> !raider1.hasActiveRaid() && Raids.canJoinRaid(raider1, raid)
             );
             set.addAll(entitiesOfClass);
