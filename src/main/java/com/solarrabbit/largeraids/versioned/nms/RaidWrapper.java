@@ -11,16 +11,13 @@ import com.solarrabbit.largeraids.nms.AbstractRaiderWrapper;
 
 import org.apache.commons.lang3.reflect.FieldUtils;
 
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.raid.Raid;
 
 public class RaidWrapper implements AbstractRaidWrapper {
     final Raid raid;
-    final ServerLevel server;
 
-    RaidWrapper(Raid raid, ServerLevel server) {
+    RaidWrapper(Raid raid) {
         this.raid = raid;
-        this.server = server;
     }
 
     @Override
@@ -64,7 +61,7 @@ public class RaidWrapper implements AbstractRaidWrapper {
             try {
                 FieldUtils.writeField(this.raid, "groupsSpawned", groupsSpawned, true);
             } catch (IllegalArgumentException ignore) {
-                FieldUtils.writeField(this.raid, "I", groupsSpawned, true);
+                FieldUtils.writeField(this.raid, "J", groupsSpawned, true);
             }
         } catch (IllegalAccessException e) {
             e.printStackTrace();
@@ -74,18 +71,18 @@ public class RaidWrapper implements AbstractRaidWrapper {
     @Override
     public void joinRaid(int i, AbstractRaiderWrapper raider, @Nullable AbstractBlockPositionWrapper blockPosition,
             boolean flag) {
-        raid.joinRaid(server, i, ((RaiderWrapper) raider).raider,
+        raid.joinRaid(i, ((RaiderWrapper) raider).raider,
                 blockPosition == null ? null : ((BlockPositionWrapper) blockPosition).blockPos, flag);
     }
 
     @Override
     public boolean addWaveMob(int wave, AbstractRaiderWrapper raider, boolean flag) {
-        return this.raid.addWaveMob(server, wave, ((RaiderWrapper) raider).raider, flag);
+        return this.raid.addWaveMob(wave, ((RaiderWrapper) raider).raider, flag);
     }
 
     @Override
     public void removeFromRaid(AbstractRaiderWrapper raider, boolean flag) {
-        this.raid.removeFromRaid(server, ((RaiderWrapper) raider).raider, flag);
+        this.raid.removeFromRaid(((RaiderWrapper) raider).raider, flag);
     }
 
     @Override

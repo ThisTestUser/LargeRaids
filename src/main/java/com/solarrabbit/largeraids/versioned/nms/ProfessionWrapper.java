@@ -10,7 +10,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.npc.VillagerProfession;
 
 public class ProfessionWrapper implements AbstractProfessionWrapper {
-    public static final ProfessionWrapper MASON = new ProfessionWrapper(BuiltInRegistries.VILLAGER_PROFESSION.getOrThrow(VillagerProfession.MASON).value());
+    public static final ProfessionWrapper MASON = new ProfessionWrapper(VillagerProfession.MASON);
     final VillagerProfession profession;
 
     ProfessionWrapper(VillagerProfession profession) {

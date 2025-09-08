@@ -88,12 +88,12 @@ public class RaiderPathfindToTargetGoal<T extends Raider> extends PathfindToRaid
             ServerLevel serverLevel = getServerLevel(this.mob.level());
             Set<Raider> set = Sets.newHashSet();
             List<Raider> entitiesOfClass = serverLevel.getEntitiesOfClass(
-                Raider.class, this.mob.getBoundingBox().inflate(16.0), raider1 -> !raider1.hasActiveRaid() && Raids.canJoinRaid(raider1)
+                Raider.class, this.mob.getBoundingBox().inflate(16.0), raider1 -> !raider1.hasActiveRaid() && Raids.canJoinRaid(raider1, raid)
             );
             set.addAll(entitiesOfClass);
 
             for (Raider raider : set) {
-                raid.joinRaid(serverLevel, raid.getGroupsSpawned(), raider, null, true);
+                raid.joinRaid(raid.getGroupsSpawned(), raider, null, true);
             }
         }
     }

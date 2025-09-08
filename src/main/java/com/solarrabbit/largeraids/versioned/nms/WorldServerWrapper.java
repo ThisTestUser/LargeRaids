@@ -68,7 +68,7 @@ public class WorldServerWrapper implements AbstractWorldServerWrapper {
 
     @Override
     public RaidWrapper getRaidAt(AbstractBlockPositionWrapper blockPos) {
-        return new RaidWrapper(this.server.getRaidAt(((BlockPositionWrapper) blockPos).blockPos), this.server);
+        return new RaidWrapper(this.server.getRaidAt(((BlockPositionWrapper) blockPos).blockPos));
     }
 
     @Override

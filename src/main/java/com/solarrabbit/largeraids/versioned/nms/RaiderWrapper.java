@@ -4,7 +4,6 @@ import com.solarrabbit.largeraids.nms.AbstractBlockPositionWrapper;
 import com.solarrabbit.largeraids.nms.AbstractRaiderWrapper;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.PathfindToRaidGoal;
 import net.minecraft.world.entity.ai.goal.WrappedGoal;
@@ -20,7 +19,7 @@ public class RaiderWrapper implements AbstractRaiderWrapper {
 
     @Override
     public RaidWrapper getCurrentRaid() {
-        return new RaidWrapper(raider.getCurrentRaid(), (ServerLevel) raider.level());
+        return new RaidWrapper(raider.getCurrentRaid());
     }
 
     @Override
