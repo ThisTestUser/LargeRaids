@@ -2,7 +2,7 @@ import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 
 plugins {
   `java-library`
-  id("io.papermc.paperweight.userdev") version "2.0.0-beta.18"
+  id("io.papermc.paperweight.userdev") version "1.7.7"
   id("com.gradleup.shadow") version "9.0.2"
 }
 
