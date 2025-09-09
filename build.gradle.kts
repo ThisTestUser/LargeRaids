@@ -9,11 +9,11 @@ plugins {
 group = "com.solarrabbit"
 version = "1.11.7"
 description = "LargeRaids"
-val mcVersion = "1.20.6"
+val mcVersion = "1.20.4"
 
 java {
-  // Configure the java toolchain. This allows gradle to auto-provision JDK 21 on systems that only have JDK 8 installed for example.
-  toolchain.languageVersion.set(JavaLanguageVersion.of(21))
+  // Configure the java toolchain. This allows gradle to auto-provision JDK 17 on systems that only have JDK 8 installed for example.
+  toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 }
 
 repositories {
@@ -31,7 +31,7 @@ dependencies {
   paperweight.paperDevBundle(mcVersion + "-R0.1-SNAPSHOT")
   shadow("org.bstats:bstats-bukkit:3.1.0")
   implementation("me.clip:placeholderapi:2.11.6")
-  implementation("io.lumine:Mythic-Dist:5.9.5")
+  implementation("io.lumine:Mythic-Dist:5.6.2")
 }
 
 tasks {
@@ -50,7 +50,7 @@ tasks {
 
     // Set the release flag. This configures what version bytecode the compiler will emit, as well as what JDK APIs are usable.
     // See https://openjdk.java.net/jeps/247 for more information.
-    options.release.set(21)
+    options.release.set(17)
   }
   javadoc {
     options.encoding = Charsets.UTF_8.name() // We want UTF-8 for everything

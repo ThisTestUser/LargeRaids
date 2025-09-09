@@ -2,7 +2,7 @@ package com.solarrabbit.largeraids.versioned.nms;
 
 import com.solarrabbit.largeraids.nms.AbstractCraftRaiderWrapper;
 
-import org.bukkit.craftbukkit.entity.CraftRaider;
+import org.bukkit.craftbukkit.v1_20_R3.entity.CraftRaider;
 import org.bukkit.entity.Raider;
 
 public class CraftRaiderWrapper extends AbstractCraftRaiderWrapper {

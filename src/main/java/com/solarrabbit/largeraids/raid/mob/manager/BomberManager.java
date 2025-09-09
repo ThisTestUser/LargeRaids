@@ -107,14 +107,14 @@ public class BomberManager implements CustomRaiderManager, Listener {
         if (!isBomberVex(damager))
             return;
         evt.setCancelled(true);
-        TNTPrimed tnt = (TNTPrimed) damager.getWorld().spawnEntity(damager.getLocation(), EntityType.TNT);
+        TNTPrimed tnt = (TNTPrimed) damager.getWorld().spawnEntity(damager.getLocation(), EntityType.PRIMED_TNT);
         tnt.setFuseTicks(primedTntTicks);
         tnt.getPersistentDataContainer().set(getTNTNamespacedKey(), PersistentDataType.BYTE, (byte) 0);
     }
 
     @EventHandler
     private void onTNTDetonate(EntityExplodeEvent evt) {
-        if (evt.getEntityType() != EntityType.TNT)
+        if (evt.getEntityType() != EntityType.PRIMED_TNT)
             return;
         TNTPrimed tnt = (TNTPrimed) evt.getEntity();
         if (!isVexTNT(tnt))
@@ -125,7 +125,7 @@ public class BomberManager implements CustomRaiderManager, Listener {
 
     @EventHandler
     private void onTNTDamage(EntityDamageByEntityEvent evt) {
-        if (evt.getDamager().getType() != EntityType.TNT)
+        if (evt.getDamager().getType() != EntityType.PRIMED_TNT)
             return;
         TNTPrimed tnt = (TNTPrimed) evt.getDamager();
         if (!(isVexTNT(tnt)))
@@ -136,14 +136,14 @@ public class BomberManager implements CustomRaiderManager, Listener {
     private ItemStack getDefaultBanner() {
         ItemStack banner = new ItemStack(Material.LIGHT_GRAY_BANNER);
         BannerMeta meta = (BannerMeta) banner.getItemMeta();
-        meta.addPattern(new Pattern(DyeColor.ORANGE, PatternType.RHOMBUS));
+        meta.addPattern(new Pattern(DyeColor.ORANGE, PatternType.RHOMBUS_MIDDLE));
         meta.addPattern(new Pattern(DyeColor.YELLOW, PatternType.FLOWER));
-        meta.addPattern(new Pattern(DyeColor.LIGHT_GRAY, PatternType.DIAGONAL_UP_LEFT));
+        meta.addPattern(new Pattern(DyeColor.LIGHT_GRAY, PatternType.DIAGONAL_LEFT_MIRROR));
         meta.addPattern(new Pattern(DyeColor.LIGHT_GRAY, PatternType.DIAGONAL_RIGHT));
         meta.addPattern(new Pattern(DyeColor.RED, PatternType.GRADIENT_UP));
-        meta.addPattern(new Pattern(DyeColor.BLACK, PatternType.CIRCLE));
+        meta.addPattern(new Pattern(DyeColor.BLACK, PatternType.CIRCLE_MIDDLE));
         meta.addPattern(new Pattern(DyeColor.BLACK, PatternType.BORDER));
-        meta.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
+        meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         meta.setDisplayName(ChatColor.GOLD.toString() + ChatColor.ITALIC + "Bomber Banner");
         banner.setItemMeta(meta);
         return banner;

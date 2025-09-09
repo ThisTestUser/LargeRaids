@@ -132,16 +132,16 @@ public class KingRaiderManager implements BossRaiderManager, Listener {
     private ItemStack getDefaultBanner() {
         ItemStack banner = new ItemStack(Material.WHITE_BANNER);
         BannerMeta meta = (BannerMeta) banner.getItemMeta();
-        meta.addPattern(new Pattern(DyeColor.CYAN, PatternType.RHOMBUS));
+        meta.addPattern(new Pattern(DyeColor.CYAN, PatternType.RHOMBUS_MIDDLE));
         meta.addPattern(new Pattern(DyeColor.LIGHT_GRAY, PatternType.STRIPE_BOTTOM));
         meta.addPattern(new Pattern(DyeColor.BLACK, PatternType.HALF_HORIZONTAL));
         meta.addPattern(new Pattern(DyeColor.BLACK, PatternType.STRIPE_MIDDLE));
         meta.addPattern(new Pattern(DyeColor.GRAY, PatternType.STRIPE_CENTER));
         meta.addPattern(new Pattern(DyeColor.BLACK, PatternType.SKULL));
-        meta.addPattern(new Pattern(DyeColor.LIGHT_GRAY, PatternType.CIRCLE));
+        meta.addPattern(new Pattern(DyeColor.LIGHT_GRAY, PatternType.CIRCLE_MIDDLE));
         meta.addPattern(new Pattern(DyeColor.BLACK, PatternType.TRIANGLE_TOP));
         meta.addPattern(new Pattern(DyeColor.BLACK, PatternType.BORDER));
-        meta.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
+        meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         meta.setDisplayName(ChatColor.RED.toString() + ChatColor.ITALIC + "King Raider Banner");
         banner.setItemMeta(meta);
         return banner;
@@ -150,7 +150,7 @@ public class KingRaiderManager implements BossRaiderManager, Listener {
     private ItemStack getKingVexSword() {
         ItemStack item = new ItemStack(Material.DIAMOND_SWORD);
         item.addEnchantment(Enchantment.FIRE_ASPECT, 2);
-        item.addEnchantment(Enchantment.SHARPNESS, 3);
+        item.addEnchantment(Enchantment.DAMAGE_ALL, 3);
         return item;
     }
 

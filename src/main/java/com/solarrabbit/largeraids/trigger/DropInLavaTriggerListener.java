@@ -38,7 +38,7 @@ public class DropInLavaTriggerListener extends Trigger {
 
     @EventHandler
     public void onItemBurnInLava(EntityDamageEvent evt) {
-        if (evt.getEntityType() != EntityType.ITEM)
+        if (evt.getEntityType() != EntityType.DROPPED_ITEM)
             return;
         Item entity = (Item) evt.getEntity();
         if (!entity.getPersistentDataContainer().has(getNamespacedKey(), PersistentDataType.STRING))

@@ -41,8 +41,8 @@ public class RaidWrapper implements AbstractRaidWrapper {
     }
 
     @Override
-    public void setRaidOmenLevel(int level) {
-        this.raid.setRaidOmenLevel(level);
+    public void setBadOmenLevel(int level) {
+        this.raid.setBadOmenLevel(level);
     }
 
     @Override

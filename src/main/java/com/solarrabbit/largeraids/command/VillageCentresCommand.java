@@ -150,7 +150,7 @@ public class VillageCentresCommand implements CommandExecutor {
     private void highlightLocation(Location location) {
         if (location.getWorld() == null || !location.getChunk().isLoaded())
             return;
-        location.getWorld().spawnParticle(Particle.CRIT, location, 50, 0.5, 0.5, 0.5, 0);
+        location.getWorld().spawnParticle(Particle.CRIT_MAGIC, location, 50, 0.5, 0.5, 0.5, 0);
     }
 
     private void plotSphere(Location center, double radius) {
@@ -173,7 +173,7 @@ public class VillageCentresCommand implements CommandExecutor {
                 mutLoc.setX((x * radius * r) + center.getBlockX());
                 mutLoc.setZ((z * radius * r) + center.getBlockZ());
                 mutLoc.setY((y * radius) + center.getBlockY());
-                world.spawnParticle(Particle.DUST, mutLoc, 1, 1, 1, 1, 0, options, true);
+                world.spawnParticle(Particle.REDSTONE, mutLoc, 1, 1, 1, 1, 0, options, true);
             }
         }
     }

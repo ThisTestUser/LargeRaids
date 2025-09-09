@@ -54,7 +54,7 @@ public class Placeholder extends PlaceholderExpansion {
             case "remaining_raiders":
                 return raid.map(LargeRaid::getTotalRaidersAlive).map(Object::toString).orElse(replacement);
             case "omen_level":
-                return raid.map(LargeRaid::getRaidOmenLevel).map(Object::toString).orElse(replacement);
+                return raid.map(LargeRaid::getBadOmenLevel).map(Object::toString).orElse(replacement);
             case "player_kills":
                 if (!raid.isPresent())
                     return replacement;

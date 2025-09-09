@@ -39,10 +39,6 @@ public class VillageAbsorbOmenListener extends Trigger {
         Player player = evt.getPlayer();
         int amplifier = player.getPotionEffect(PotionEffectType.BAD_OMEN).getAmplifier();
         triggerRaid(player, player.getLocation(), amplifier + 1);
-
-        // Bukkit is supposed to remove this effect after the event is cancelled,
-        // but it removes RAID_OMEN only, which is probably a bug.
-        player.removePotionEffect(PotionEffectType.BAD_OMEN);
     }
 
     @EventHandler

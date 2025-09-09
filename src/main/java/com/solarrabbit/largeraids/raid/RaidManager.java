@@ -235,9 +235,9 @@ public class RaidManager implements Listener {
      * @param omenLevel levels to absorb
      */
     public void extendRaid(LargeRaid raid, int omenLevel) {
-        int oldLevel = raid.getRaidOmenLevel();
+        int oldLevel = raid.getBadOmenLevel();
         raid.absorbOmenLevel(omenLevel);
-        int newLevel = raid.getRaidOmenLevel();
+        int newLevel = raid.getBadOmenLevel();
         if (newLevel != oldLevel)
             Bukkit.getPluginManager().callEvent(new LargeRaidExtendEvent(raid, oldLevel, newLevel));
     }

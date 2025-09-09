@@ -127,13 +127,13 @@ public class NecromancerManager implements CustomRaiderManager, Listener {
     private ItemStack getDefaultBanner() {
         ItemStack banner = new ItemStack(Material.GRAY_BANNER);
         BannerMeta meta = (BannerMeta) banner.getItemMeta();
-        meta.addPattern(new Pattern(DyeColor.YELLOW, PatternType.RHOMBUS));
+        meta.addPattern(new Pattern(DyeColor.YELLOW, PatternType.RHOMBUS_MIDDLE));
         meta.addPattern(new Pattern(DyeColor.GRAY, PatternType.STRIPE_DOWNLEFT));
         meta.addPattern(new Pattern(DyeColor.YELLOW, PatternType.STRIPE_MIDDLE));
         meta.addPattern(new Pattern(DyeColor.BLACK, PatternType.SKULL));
         meta.addPattern(new Pattern(DyeColor.WHITE, PatternType.SKULL));
         meta.addPattern(new Pattern(DyeColor.BLACK, PatternType.BORDER));
-        meta.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
+        meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         meta.setDisplayName(ChatColor.GOLD.toString() + ChatColor.ITALIC + "Necromancer Banner");
         banner.setItemMeta(meta);
         return banner;

@@ -8,7 +8,7 @@ import com.solarrabbit.largeraids.nms.AbstractCraftRaidWrapper;
 import com.solarrabbit.largeraids.nms.AbstractRaidWrapper;
 
 import org.bukkit.Raid;
-import org.bukkit.craftbukkit.CraftRaid;
+import org.bukkit.craftbukkit.v1_20_R3.CraftRaid;
 
 public class CraftRaidWrapper extends AbstractCraftRaidWrapper {
     private static MethodHandle handle;
