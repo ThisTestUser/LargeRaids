@@ -4,7 +4,7 @@ import com.solarrabbit.largeraids.nms.AbstractCraftVexWrapper;
 
 import net.minecraft.world.entity.Mob;
 
-import org.bukkit.craftbukkit.v1_20_R3.entity.CraftVex;
+import org.bukkit.craftbukkit.v1_20_R2.entity.CraftVex;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Vex;
 

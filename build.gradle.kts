@@ -9,7 +9,7 @@ plugins {
 group = "com.solarrabbit"
 version = "1.11.7"
 description = "LargeRaids"
-val mcVersion = "1.20.4"
+val mcVersion = "1.20.2"
 
 java {
   // Configure the java toolchain. This allows gradle to auto-provision JDK 17 on systems that only have JDK 8 installed for example.

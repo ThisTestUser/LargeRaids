@@ -55,7 +55,7 @@ public final class LargeRaids extends JavaPlugin {
     private TriggerManager triggerManager;
     private VillageManager villageManager;
 
-    private static final String VERSION = "1.20.4";
+    private static final String VERSION = "1.20.2";
 
     @Override
     public void onEnable() {
