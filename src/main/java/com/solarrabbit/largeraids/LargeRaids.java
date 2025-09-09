@@ -61,7 +61,11 @@ public final class LargeRaids extends JavaPlugin {
     public void onEnable() {
         logger = new PluginLogger();
 
-        if (!VERSION.equals(Bukkit.getServer().getMinecraftVersion())) {
+        boolean noCheck = LargeRaids.class.getResource("/SKIP_VERSION_CHECK.txt") != null;
+        if (noCheck) {
+            log("You have chosen to skip the version check entirely", Level.WARN);
+        }
+        if (!noCheck && !VERSION.equals(Bukkit.getServer().getMinecraftVersion())) {
             boolean skipCheck = LargeRaids.class.getResource("/BYPASS_VERSION_CHECK.txt") != null;
             log(String.format("Server version is not supported! Supported Version: %s, Your Version: %s",
                     VERSION, Bukkit.getServer().getMinecraftVersion()), Level.FAIL, false);
