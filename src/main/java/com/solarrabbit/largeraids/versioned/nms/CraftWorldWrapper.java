@@ -3,7 +3,7 @@ package com.solarrabbit.largeraids.versioned.nms;
 import com.solarrabbit.largeraids.nms.AbstractCraftWorldWrapper;
 
 import org.bukkit.World;
-import org.bukkit.craftbukkit.v1_20_R2.CraftWorld;
+import org.bukkit.craftbukkit.v1_20_R1.CraftWorld;
 
 public class CraftWorldWrapper extends AbstractCraftWorldWrapper {
 
