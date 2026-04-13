@@ -64,7 +64,7 @@ public class RaidWrapper implements AbstractRaidWrapper {
             try {
                 FieldUtils.writeField(this.raid, "groupsSpawned", groupsSpawned, true);
             } catch (IllegalArgumentException ignore) {
-                FieldUtils.writeField(this.raid, "I", groupsSpawned, true);
+                FieldUtils.writeField(this.raid, "H", groupsSpawned, true);
             }
         } catch (IllegalAccessException e) {
             e.printStackTrace();
